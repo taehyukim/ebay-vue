@@ -7,7 +7,6 @@
         <script src="http://code.jquery.com/jquery.min.js"></script>
         <script type="text/javascript" src="javascript.js"></script>
         <script src="https://unpkg.com/vue@2.3.3"></script>
-        
         <!-- <link rel="stylesheet" href="index.css"> -->
         <style type="text/css">
             * { box-sizing: border-box; }
@@ -21,6 +20,8 @@
             .mybtn:hover { color: white; background-color: black; }
         </style>
     </head>
+
+    
     <body>
         <div id="main_div" >
             <div id="tab">
@@ -36,11 +37,11 @@
         </div>
 
 
-        <app-vue inline-template>
+        <div id="app">
             <div>
                 <!-- 문제 1 -->
                 <!-- 아래 버튼을 클릭했을 때 브라우저 기본 경고창을 띄워보세요 -->
-                <button v-on:click='alert()'>click me</button>
+                <button v-on:click="popup()">click me</button>
             
                 <!-- 문제 2 -->
                 <!-- 뷰 데이터 속성인 login 값에 따라 아래 태그가 표시되거나 미표시되게 해보세요.  -->
@@ -55,23 +56,18 @@
                 <!-- 문제 5 -->
                 <!-- 문제 3에서 등록한 컴포넌트에서 이벤트를 발생시켜 num 데이터의 값을 변경해보세요 -->
             </div>
-        </app_vue>
+        </div>
     </body>
-
     <script>
-
-        var app = new Vue({
-            el:"app_vue",
+        let app = new Vue({
+            el: '#app',
             data: function() {
                 return {
                 login: false,
                     num: 10,
             }},
-            component: {
-                'app_vue':app-vue
-            },
             methods: {
-                alert: function() {
+                popup: function() {
                     alert("클릭");
                 }
             }
